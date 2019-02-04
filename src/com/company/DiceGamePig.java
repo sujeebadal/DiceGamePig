@@ -13,10 +13,12 @@ public class DiceGamePig {
     public static void main(String[] args) {
         Random r = new Random();
         Scanner Keyboard = new Scanner(System.in);
+        System.out.println("Welcome! Let's Play Roll Dice!");
         int score = 0;
 
         String roll=" ";
         do {
+            //x= dice 1, y= dice 2
 
             int x = 1 + r.nextInt(6);
             int y = 1 + r.nextInt(6);
@@ -25,7 +27,7 @@ public class DiceGamePig {
 
 
             if (x == 1 && y == 1) {
-                score = score + 25;
+                score = score + 25;   // or use score+=25
             } else if (x == 1 && y > 1 || x > 1 && y == 1) {
                 score = 0 + score;
             } else if (x > 1 && y > 1) {
@@ -38,9 +40,13 @@ public class DiceGamePig {
             roll = Keyboard.nextLine();
 
         }while (roll.equalsIgnoreCase("yes") && score<=100 );
-
         System.out.println("Thank you for playing");
 
+
+        if (score>=100){
+            System.out.println("You have scored over 100");
+
+        }
 
     }
 }
