@@ -13,65 +13,34 @@ public class DiceGamePig {
     public static void main(String[] args) {
         Random r = new Random();
         Scanner Keyboard = new Scanner(System.in);
-        for (int i = 0; i < 100; i++) {
+        int score = 0;
 
-        int x = 1 + r.nextInt(6);
-        int y = 1 + r.nextInt(6);
-        System.out.println("Your dice rolls are " + x + " and " + y);
+        String roll=" ";
+        do {
 
-        int score = x + y;
-        System.out.println("Your score = " + score);
+            int x = 1 + r.nextInt(6);
+            int y = 1 + r.nextInt(6);
 
-        System.out.print("Roll again or lose your turn?");
-        String roll = Keyboard.nextLine();
+            System.out.println("Your dice rolls are " + x + " and " + y);
 
-        if (roll.equals("no")){
-            System.out.println("Game ends. Thank you for playing.");
-            System.exit(0);
-            }
-
-        else if (roll.equals ("yes")){
-            System.out.println("Roll again");
-            }
 
             if (x == 1 && y == 1) {
-                score = 25;
-            }
-            else if (x == 1 && y == 2) {
-                score = 0;
-            }
-            else if (x == 1 && y == 3) {
-                score = 0;
-            }
-            else if (x == 1 && y == 4) {
-                score = 0;
-            }
-            else if (x == 1 && y == 5) {
-                score = 0;
-            }
-            else if (x == 1 && y == 6) {
-                score = 0;
-            }
-            else if (x == 2 && y == 1) {
-                score = 0;
-            }
-            else if (x == 3 && y == 1) {
-                score = 0;
-            }
-            else if (x == 4 && y == 1) {
-                score = 0;
-            }
-            else if (x == 5 && y == 1) {
-                score = 0;
-            }
-            else if (x == 6 && y == 1) {
-                score = 0;
-            }
-            else if (score >= 100) {
-                System.out.println("Game Ends. Thank you for playing.");
-                System.exit(0);
+                score = score + 25;
+            } else if (x == 1 && y > 1 || x > 1 && y == 1) {
+                score = 0 + score;
+            } else if (x > 1 && y > 1) {
+                score = score + x + y;
             }
 
-        }
+            System.out.println("Your score = " + score);
+
+            System.out.print("Roll again or lose your turn?");
+            roll = Keyboard.nextLine();
+
+        }while (roll.equalsIgnoreCase("yes") && score<=100 );
+
+        System.out.println("Thank you for playing");
+
+
     }
 }
