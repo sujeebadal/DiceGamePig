@@ -16,7 +16,7 @@ public class DiceGamePig {
         System.out.println("Welcome! Let's Play Roll Dice!");
         int score = 0;
 
-        String roll=" ";
+        String roll = " ";
         do {
             //x= dice 1, y= dice 2
 
@@ -39,8 +39,7 @@ public class DiceGamePig {
             System.out.print("Roll again or lose your turn?");
             roll = Keyboard.nextLine();
 
-        }while (roll.equalsIgnoreCase("yes") && score<=100 );
-        System.out.println("Thank you for playing");
+        } while (roll.equalsIgnoreCase("yes") && score <= 100);
 
 
         if (score>=100){
@@ -48,5 +47,8 @@ public class DiceGamePig {
 
         }
 
+        System.out.println("Thank you for playing");
+
     }
 }
+
